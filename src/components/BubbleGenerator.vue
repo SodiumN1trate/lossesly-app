@@ -61,7 +61,6 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  /*position: absolute;*/
   width: 100%;
 }
 
@@ -71,7 +70,7 @@ export default {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  z-index: -40;
+  z-index: 1;
 }
 
 .large {

@@ -23,19 +23,23 @@ export default {
 <style scoped>
 .background, .content {
   position: absolute;
-  width: 70%;
+  width: 60%;
   bottom: 0;
   left: 0;
+  z-index: 2;
 }
 
 .content {
-  height: 520px;
+  position: absolute;
+  height: 60%;
 }
 
 h1 {
   font-weight: 300;
   font-size: 50px;
   margin-left: 30px;
+  position: absolute;
+  top: 0;
 }
 
 </style>

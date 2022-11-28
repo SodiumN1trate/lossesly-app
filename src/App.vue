@@ -1,19 +1,11 @@
 <template>
-  <div style="display: flex; gap: 30px; font-size: 30px;">
-    <a href="/">Home</a>
-    <a href="#tests">About</a>
-  </div>
   <main>
-    <section id="home">
-      <template v-if="currentPage === '/'">
-        <HomeView />
-        <BubbleGenerator />
-      </template>
+    <section>
+      <HomeView/>
+      <BubbleGenerator />
     </section>
-    <section id="tests">
-      <template v-if="currentPage === '/'">
+    <section>
         Tests
-      </template>
     </section>
   </main>
 </template>
@@ -28,20 +20,6 @@ export default {
     HomeView,
     BubbleGenerator
   },
-  data () {
-    return {
-      currentPage: '/'
-    }
-  },
-  mounted() {
-    this.ticker()
-  },
-  methods: {
-    ticker () {
-      this.currentPage = this.$router.currentRoute._value.path
-      this.ticker()
-    }
-  }
 }
 </script>
 
@@ -58,9 +36,8 @@ main {
 
 section {
   scroll-snap-align: start;
-  padding: 3em;
-  height: calc(100vh -  6em);
-  background-color: #383F51;
+  height: 100vh;
+  position: relative;
 }
 
 </style>

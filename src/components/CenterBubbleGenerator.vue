@@ -2,7 +2,11 @@
   <div ref="content" class="content">
     <div>{{ window }}</div>
     <template v-for="(bubble, index) in bubbles" :key="index">
-      <div class="bubble" @click="bubble.distance = -50000" :class="{'hide-bubble': bubble.distance < bubble.x, 'small': bubble.size === 0, 'large':  bubble.size === 1}" :style="{left: bubble.x  + 'px', bottom: bubble.y + 'px'}"></div>
+      <div
+          class="bubble"
+          @click="bubble.distance = -50000"
+          :class="{'hide-bubble': bubble.distance < bubble.x, 'small': bubble.size === 0, 'large':  bubble.size === 1}"
+          :style="{left: bubble.x  + '%', bottom: bubble.y + '%'}"></div>
     </template>
   </div>
 </template>
@@ -26,21 +30,21 @@ export default {
       if (document.hidden) { this.status = false } else { this.status = true }
       if(this.status) {
         this.bubbles.push({
-          y: 0,
-          x: 0,
-          vx: 0.2 * Math.cos(this.angle),
-          vy: 0.2 *  -Math.sin(this.angle),
-          distance:  Math.random() * (window.innerWidth - 900) + 800,
+          y: 50,
+          x: 50,
+          vx: 0.1 * Math.cos(this.angle),
+          vy: 0.1 *  -Math.sin(this.angle),
+          distance:  70,
           size: Math.round(Math.random())
         })
-        this.angle += Math.random() * (0.3 - 0.2) + 0.2
-        if(this.angle > 6.25) {
-          this.angle = parseFloat((Math.random() * (6.25 - 4.17) + 4.17).toFixed(2))
-        }
+        this.angle +=  Math.random()*Math.PI*2
+        // if(this.angle > 6.25) {
+        //   this.angle = parseFloat((Math.random() * (6.25 - 4.17) + 4.17).toFixed(2))
+        // }
       }
       setTimeout(() => {
         this.generateBubble()
-      }, 600);
+      }, 300);
     },
     move () {
       this.bubbles.forEach(e => {

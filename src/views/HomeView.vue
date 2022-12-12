@@ -66,81 +66,81 @@ export default {
     return {
       carousel: [
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },{
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
 
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'ProgrammētājsProgrammētāj sProgrammētājsProgrammētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },{
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },
         {
-          name: 'Jānis balodis',
+          name: 'Jānis Ozoliņš',
           spec: 'Programmētājs',
           image: 'https://thispersondoesnotexist.com/image'
         },

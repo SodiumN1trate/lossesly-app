@@ -13,21 +13,24 @@
     <h1 v-show="showTitle" class="web-title">Lossesly</h1>
   </transition>
   <div class="navigation">
-    <a
+    <template
         v-for="(page, index) in pages"
         :key="index"
-        :href="page.route"
-        @click="hideTitle"
-        @mouseenter="page.hover = true"
-        @mouseleave="page.hover = false"
     >
-      <div class="navigation-button" :style="{backgroundColor: $route.hash === page.route ? '#5D6065': '#2d3138'}"
-           v-if="page.auth && $store.state.user || page.name !== 'Autentificēšanās' && (!$store.state?.user || page.auth === false)">
+      <a
+          class="navigation-button"
+          :style="{backgroundColor: $route.hash === page.route ? '#5D6065': '#2d3138'}"
+          v-if="!$store.state.user && page.route === '#authentication' || (page.auth && $store.state.user || page.auth === false)"
+          :href="page.route"
+          @click="hideTitle"
+          @mouseenter="page.hover = true"
+          @mouseleave="page.hover = false"
+      >
         <transition name="navigation">
           <span v-if="page.hover">{{ page.name }}</span>
         </transition>
-      </div>
-    </a>
+      </a>
+    </template>
   </div>
 
   <main>
@@ -35,7 +38,7 @@
       <HomeView/>
       <BubbleGenerator />
     </section>
-    <section id="authentication" v-if="!$store.state?.user">
+    <section id="authentication" v-if="!$store.state.user">
       <AuthView />
 <!--      <CenterBubbleGenerator />-->
     </section>
@@ -69,8 +72,7 @@ export default {
         {
           name: 'Autentificēšanās',
           route: '#authentication',
-          hover: false,
-          auth: false
+          hover: false
         },
         {
           name: 'Profils',

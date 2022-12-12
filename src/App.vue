@@ -1,22 +1,32 @@
 <template>
+  <template class="popups" style="">
+    <PopUp
+        v-for="(pop, index) in $store.state.popups"
+        :key="index"
+        :popupType="pop.popupType"
+        :popupText="pop.popupText"
+        :popupShowTime="pop.popupShowTime + index / 2"
+    />
+  </template>
+
   <transition>
     <h1 v-show="showTitle" class="web-title">Lossesly</h1>
   </transition>
-
   <div class="navigation">
     <a
         v-for="(page, index) in pages"
         :key="index"
-        class="navigation-button"
         :href="page.route"
         @click="hideTitle"
         @mouseenter="page.hover = true"
         @mouseleave="page.hover = false"
-        :style="{backgroundColor: $route.hash === page.route ? '#5D6065': '#2d3138'}"
     >
-      <transition name="navigation">
-        <span v-if="page.hover">{{ page.name }}</span>
-      </transition>
+      <div class="navigation-button" :style="{backgroundColor: $route.hash === page.route ? '#5D6065': '#2d3138'}"
+           v-if="page.auth && $store.state.user || page.name !== 'Autentificēšanās' && (!$store.state?.user || page.auth === false)">
+        <transition name="navigation">
+          <span v-if="page.hover">{{ page.name }}</span>
+        </transition>
+      </div>
     </a>
   </div>
 
@@ -25,11 +35,11 @@
       <HomeView/>
       <BubbleGenerator />
     </section>
-    <section id="authentication">
+    <section id="authentication" v-if="!$store.state?.user">
       <AuthView />
 <!--      <CenterBubbleGenerator />-->
     </section>
-    <section id="profile">
+    <section id="profile" v-if="$store.state.user">
       <ProfileView />
     </section>
   </main>
@@ -41,6 +51,7 @@ import BubbleGenerator from "@/components/BubbleGenerator";
 import HomeView from "@/views/HomeView";
 import AuthView from "@/views/AuthView";
 import ProfileView from "@/views/ProfileView";
+import PopUp from "@/components/PopUp";
 
 export default {
   name: 'App',
@@ -52,22 +63,26 @@ export default {
         {
           name: 'Galvenā lapa',
           route: '#home',
-          hover: false
+          hover: false,
+          auth: false
         },
         {
           name: 'Autentificēšanās',
           route: '#authentication',
-          hover: false
+          hover: false,
+          auth: false
         },
         {
           name: 'Profils',
           route: '#profile',
-          hover: false
+          hover: false,
+          auth: true
         }
       ]
     }
   },
   components: {
+    PopUp,
     ProfileView,
     AuthView,
     HomeView,
@@ -140,6 +155,21 @@ section {
   z-index: 100;
 }
 
+.popups {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 10px;
+  z-index: 20;
+  justify-content: center;
+  align-items: center;
+}
+
 .navigation-button {
   float: right;
   width: 30px;
@@ -173,7 +203,7 @@ section {
 
 
 .navigation-enter-active {
-  transition: opacity 2s ease;
+  transition: opacity 1s ease;
 }
 
 .navigation-leave-active {

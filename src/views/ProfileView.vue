@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div v-if="$store.state.user">
     <div class="main bubble">
-      <h1>Markuss Lācis</h1>
-      <p>markusslacis@gmail.com</p>
+      <h1>{{ $store.state.user.name }} {{ $store.state.user.surname }}</h1>
+      <p>{{ $store.state.user.email }}</p>
     </div>
     <div class="image bubble">
       <img src="https://thispersondoesnotexist.com/image">
     </div>
     <div class="rating bubble">
       <h1 >Reitings</h1>
-      <h2>4.2</h2>
+      <h2>{{ $store.state.user.rating }}</h2>
     </div>
     <div class="message bubble">
       <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">

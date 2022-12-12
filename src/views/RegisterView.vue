@@ -7,39 +7,50 @@
       <div>
         <h1>Reģistrācija</h1>
       </div>
-      <div class="form">
+      <form class="form" @submit.prevent>
         <div>
           <div class="input-wrapper">
             <label for="first">Vārds</label>
-            <input type="text">
+            <input type="text" v-model="form.name">
           </div>
           <div class="input-wrapper">
             <label for="first">Uzvārds</label>
-            <input type="text">
+            <input type="text" v-model="form.surname">
           </div>
           <div class="input-wrapper">
             <label for="first">E-pasts</label>
-            <input type="text">
+            <input type="text" v-model="form.email">
           </div>
           <div class="input-wrapper">
             <label for="first">Parole</label>
-            <input type="password">
+            <input type="password" v-model="form.password">
           </div>
           <div class="input-wrapper">
             <label for="first">Atkārtoti paroli</label>
-            <input type="password">
+            <input type="password" v-model="form.password_rep">
           </div>
         </div>
-        <button>Turpināt</button>
+        <button @click="$store.dispatch('register', form)">Turpināt</button>
         <p>Obligāti nepiciešams verificēt savu identitāti</p>
-      </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'RegisterView'
+  name: 'RegisterView',
+  data () {
+    return {
+      form: {
+        name: null,
+        surname: null,
+        email: null,
+        password: null,
+        password_rep: null
+      }
+    }
+  }
 }
 </script>
 

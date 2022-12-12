@@ -8,11 +8,11 @@
       <div>
         <div class="input-wrapper">
           <label for="first">E-pasts</label>
-          <input type="text">
+          <input type="text" v-model="form.email">
         </div>
         <div class="input-wrapper">
           <label for="first">Parole</label>
-          <input type="password">
+          <input type="password" v-model="form.password">
         </div>
         <label class="checkbox-container">Atcerēties mani?
           <input type="checkbox">
@@ -21,14 +21,22 @@
       </div>
       <span>Aizmirsi paroli? <a href="/">spied šeit</a></span>
       <span>Gribi reģistrēties? <a href="#register">spied šeit</a></span>
-      <button>Ieiet</button>
+      <button @click="$store.dispatch('login', form)">Ieiet</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'LoginView'
+  name: 'LoginView',
+  data () {
+    return {
+      form: {
+        email: null,
+        password: null
+      }
+    }
+  }
 }
 </script>
 
